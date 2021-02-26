@@ -53,13 +53,13 @@ declarations, when more than one rule applies to a certain element
 
 TO RESOLVE CONFLICTS
 importance(weight)                                        >            specificity                                   >              source order
-1. User !important declaration            same                  1. inline styles
-2. Author !important declaration        importance?             2. IDs
-3. Author declaration------------------------------------->     3. classes, pseudo-classes, attribute ---------------->
+1. User !important declaration            same                  1. inline styles                          same                     The last declarations in the code
+2. Author !important declaration        importance?             2. IDs                                 specificity?                 will override all other declarations 
+3. Author declaration------------------------------------->     3. classes, pseudo-classes, attribute ---------------->            and will be applied
 4. User declaration                                             4. elements, pseudo-elements
 5. Default browser declarations
 
------------------------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
 Example
 .button {
     font-size: 20px;
@@ -71,23 +71,40 @@ Example
     background-color: green;
 }
 
--------------------------------------------------------------------------------------------------------------------------------
-.button {                                           Inline
-    font-size: 20px;
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+                                                            Inline      IDs            Classes                     Elements
+
+.button {                                    Specificity        0        0               1                            0
+    font-size: 20px;                            
     color: white;                 
     background-color: blue
 }
 
-#nav.pull-right .button {                           IDs
+nav#nav div.pull-right .button {                                 0     1(#nav)    2(pull right,button)                2(nav, div)
     background-color: green;
 }
 
-a {                                                 Classes
+a {                                                             0       0                   0                           1
   background-color: purple;  
 }
 
-#nav a.button: hover {                              Elements
+#nav a.button: hover {                                          0       1(#nav)      2(button, hover-pseudo class)      1 (a)         
     background-color: yellow;  
 }
 
 ------------------------------------------------------------------------------------------------------------------------------
+
+background color will be green on the basis of specificity
+
+
+Summary:
+- CSS declarations marked with !important have the highest priority
+- But, only use !important as a last resource. It's better to use correct specificities - more maintainable code!
+- Inline styles will always have priority over styles in external stylesheets;
+- A selector that contain 1 ID is more specific than one with 1000 classes;
+- A selector that contains 1 class is more specific than one with 1000 elements;
+- The universal selector * has no specificity value (0, 0, 0, 0);
+- Rely more on specificity than on the order of selectors;
+- But, rely on order when using 3rd-party stylesheets - always put your author stylesheet last.
