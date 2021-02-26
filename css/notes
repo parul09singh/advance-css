@@ -1,0 +1,42 @@
+3 pillars to write good html and CSS and build good websites
+- responsive design
+- maintainable and scalable code
+- web performance
+
+Responsive design
+- fluid layouts
+- media queries
+- responsive images
+- correct units
+- desktop-first vs mobile-first
+
+Maintainable and scalable code
+- clean
+- easy to understand
+- supports growth
+- reusable
+- how to organize files
+- how to name classes
+- how to structure html
+
+Web performance
+- less HTTP requests
+- less code
+- compress code
+- use a CSS preprocessor
+- less images
+- compress images
+
+What happens to CSS when we load up a webpage
+            Load HTML --> Parse HTML ---------------------------------> Document Object Model(DOM)------|
+                            |                                                                           |
+                            |                                                                           |
+                            |                                                                           |
+                            v                                                                           |
+                        Load CSS ------------->Parse CSS --------------> CSS Object Model(CSSOM)--------|
+                                        |                                                               |
+                                        1. Resolve conflicting CSS declaration(cascade)                 |
+                                        2. Process final CSS values                                     |
+                                                                                                        |
+Final rendered<--------- Website rendering:       <----------------------Render Tree <------------------|
+website              the visual formatting model
