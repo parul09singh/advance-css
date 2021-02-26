@@ -128,6 +128,19 @@ body {
     }
 }
 
+@keyframes moveInBottom {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    
+    100% {
+        opacity: 1;
+        transform: translateY(0px);
+    }
+}
+
+
 /* pseudo classes are special state of a selector , 
 we pseudo classes to style elements under special conditions such as hover, click, selecting a child etc.*/
 .btn:link,
@@ -138,6 +151,7 @@ we pseudo classes to style elements under special conditions such as hover, clic
     display: inline-block;
     border-radius: 100px;
     transition: all .2s;
+    position: relative;
 }
 
 .btn:hover {
@@ -153,4 +167,39 @@ we pseudo classes to style elements under special conditions such as hover, clic
 .btn-white {
     background-color: #fff;
     color: #777;
+}
+
+.btn::after {
+    /*must have property for this to function */
+    /* pseudo element is like children, 
+    so if the have properties similar to btn in terms of height & width,border-radius etc.*/
+    content: "";
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    border-radius: 100px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transition: all .4s;
+}
+
+.btn-white::after {
+    background-color: #fff;
+}
+
+.btn:hover::after {
+    transform: scaleX(1.4) scaleY(1.6);
+    opacity: 0; /*fades-out*/
+}
+
+.btn-animated {
+    /*Shorthand: animation-name animation-duration animation-timing-function animation-delay*/
+    animation: moveInBottom .5s ease-out .75s;
+    /* apply the styles at 0% of the animation otherwise the button will be visible at the same
+    base-position and once the animation starts it will come from down to up; to avoid this we are using 
+    animation-fill-mode: backwards; property*/
+    animation-fill-mode: backwards;
+
 }
