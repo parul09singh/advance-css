@@ -40,3 +40,54 @@ What happens to CSS when we load up a webpage
                                                                                                         |
 Final rendered<--------- Website rendering:       <----------------------Render Tree <------------------|
 website              the visual formatting model
+
+
+
+The CASCADE in CSS
+Process of combining different stylesheets and resolving conflicts between different CSS rules and 
+declarations, when more than one rule applies to a certain element
+
+- Author declaration
+- User
+- Browser declaration(user agent)
+
+TO RESOLVE CONFLICTS
+importance(weight)                                        >            specificity                                   >              source order
+1. User !important declaration            same                  1. inline styles
+2. Author !important declaration        importance?             2. IDs
+3. Author declaration------------------------------------->     3. classes, pseudo-classes, attribute ---------------->
+4. User declaration                                             4. elements, pseudo-elements
+5. Default browser declarations
+
+-----------------------------------------------------------------------------------------------------------------------------
+Example
+.button {
+    font-size: 20px;
+    color: white;
+    background-color: blue !important; ----> This will be applied because of !important
+}
+
+#nav.pull-right .button{
+    background-color: green;
+}
+
+-------------------------------------------------------------------------------------------------------------------------------
+.button {                                           Inline
+    font-size: 20px;
+    color: white;                 
+    background-color: blue
+}
+
+#nav.pull-right .button {                           IDs
+    background-color: green;
+}
+
+a {                                                 Classes
+  background-color: purple;  
+}
+
+#nav a.button: hover {                              Elements
+    background-color: yellow;  
+}
+
+------------------------------------------------------------------------------------------------------------------------------
