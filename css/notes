@@ -108,3 +108,14 @@ Summary:
 - The universal selector * has no specificity value (0, 0, 0, 0);
 - Rely more on specificity than on the order of selectors;
 - But, rely on order when using 3rd-party stylesheets - always put your author stylesheet last.
+
+
+VISUAL FORMATTING Model
+Algorithm that calculates boxes and determines the layout of these boxes, for each element in the render tree,
+in order to determine the final layout of the page
+- dimensions of boxes: the box model
+- Box type: inline, block, inline-block
+- Positioninh scheme: floats and positioning
+- Stacking contexts
+- other elements in the render tree(siblings or parent)
+- viewport size, dimensions of images, etc.
