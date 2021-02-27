@@ -1,0 +1,65 @@
+.btn {
+    /* pseudo classes are special state of a selector , 
+        we pseudo classes to style elements under special conditions such as 
+        hover, click, selecting a child etc.
+    */
+    &:link,
+    &:visited {
+        text-transform: uppercase;
+        text-decoration: none;
+        padding: 1.5rem 4rem;
+        display: inline-block;
+        border-radius: 10rem;
+        transition: all .2s;
+        position: relative;
+        font-size: 1.6rem;
+    }
+
+    &:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 1rem 2rem rgba($color-black, 0.2);
+        &::after {
+            transform: scaleX(1.4) scaleY(1.6);
+            opacity: 0; /*fades-out*/
+        }
+    }
+
+    &:active {
+        transform: translateY(-1px);
+        box-shadow: 0 .5rem 1rem rgba($color-black, 0.2);
+    }
+
+    &--white {
+        background-color: $color-white;
+        color: $color-grey-dark;
+        &::after {
+            background-color: $color-white;
+        }
+    }
+
+    &::after {
+        /*must have property for this to function */
+        /* pseudo element is like children, 
+        so if the have properties similar to btn in terms of height & width,border-radius etc.*/
+        content: "";
+        display: inline-block;
+        height: 100%;
+        width: 100%;
+        border-radius: 10rem;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+        transition: all .4s;
+    }
+
+    &--animated {
+        /*Shorthand: animation-name animation-duration animation-timing-function animation-delay*/
+        animation: moveInBottom .5s ease-out .75s;
+        /* apply the styles at 0% of the animation otherwise the button will be visible at the same
+        base-position and once the animation starts it will come from down to up; to avoid this we are using 
+        animation-fill-mode: backwards; property*/
+        animation-fill-mode: backwards;
+
+    }
+}

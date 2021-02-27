@@ -1,0 +1,24 @@
+*,
+*::after,
+*::before {
+    padding: 0;
+    margin: 0;
+    box-sizing: inherit;
+    /*now every element will inherit the box-sizing property as 'border-box' from body (@see line 35)*/
+}
+
+html{
+    /*Changing the root font-size so that now 1rem = 10px instead of default (1rem = 16px)*/
+    font-size: 10px;
+    /*Providing font-size in px is a bad practice and will override the browser setting and
+    restrict the users especially disabled users to increase the font-size by changing browser settings, 
+    so in order to give them this capability we will provide values in percentage
+    font-size: 100% would mean 16px default; but we want it to be equivalent to 
+    10px so 10/16 = .625*100 = 62.5
+    */
+    font-size: 62.5%;
+}
+
+body {
+    box-sizing: border-box;
+}
