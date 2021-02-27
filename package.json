@@ -1,0 +1,22 @@
+{
+  "name": "natours",
+  "version": "1.0.0",
+  "description": "advance css consepts",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/parul09singh/advance-css.git"
+  },
+  "author": "parul",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/parul09singh/advance-css/issues"
+  },
+  "homepage": "https://github.com/parul09singh/advance-css#readme",
+  "devDependencies": {
+    "node-sass": "^5.0.0"
+  }
+}
