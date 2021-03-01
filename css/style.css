@@ -107,6 +107,9 @@ body {
 .u-center-text {
   text-align: center; }
 
+.u-margin-bottom-8 {
+  margin-bottom: 8rem; }
+
 .btn {
   /* pseudo classes are special state of a selector , 
         we pseudo classes to style elements under special conditions such as 
@@ -161,7 +164,6 @@ body {
 .row {
   max-width: 114rem;
   width: 100%;
-  background-color: #eee;
   margin: 0 auto;
   content: "";
   display: table;
@@ -169,7 +171,6 @@ body {
   .row:not(:last-child) {
     margin-bottom: 8rem; }
   .row [class^="col-"] {
-    background-color: orangered;
     float: left; }
     .row [class^="col-"]:not(:last-child) {
       margin-right: 6rem; }
