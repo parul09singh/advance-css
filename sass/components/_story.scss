@@ -1,0 +1,39 @@
+.story {
+    width: 75%;
+    margin: 0 auto;
+    box-shadow: 0 3rem 6rem rgba($color-black, .1);
+    background-color: $color-white;
+    border-radius: 3px;
+    padding: 6rem;
+    padding-left: 9rem;
+    font-size: $default-font-size;
+    transform: skewX(-12deg);
+
+    // & > * {
+    //     /*should be applicable for &__shape and &__text; but will only be applied to &__text because
+    //     * in &__shape tranform is alredy applied (@see line 25) and two transform properties cannot be applied at the same time
+    //     * so will have to individually apply to both the children, hence commenting this block.
+    //     */
+    //     transform: skewX(12deg); 
+    // }
+
+    &__shape {
+        width: 15rem;
+        height: 15rem;
+        float: left;
+        -webkit-shape-outside: circle(50% at 50% 50%); //check browser support
+        shape-outside: circle(50% at 50% 50%); //inorder for this property to work element should float and the element has width and height
+        -webkit-clip-path: circle(50% at 50% 50%);
+        clip-path: circle(50% at 50% 50%);
+        transform: translateX(-3rem) skewX(12deg); 
+    
+    }
+
+    &__img {
+        height: 100%;
+    }
+
+    &__text {
+        transform: skewX(12deg); 
+    }
+}
