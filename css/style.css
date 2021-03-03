@@ -133,6 +133,20 @@ body {
 .u-margin-top-huge {
   margin-bottom: 10rem; }
 
+.bg-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: -1;
+  opacity: .15;
+  overflow: hidden; }
+  .bg-video__content {
+    height: 100%;
+    width: 100%;
+    object-fit: cover; }
+
 .btn {
   /* pseudo classes are special state of a selector , 
         we pseudo classes to style elements under special conditions such as 
@@ -350,14 +364,12 @@ body {
   width: 75%;
   margin: 0 auto;
   box-shadow: 0 3rem 6rem rgba(0, 0, 0, 0.1);
-  background-color: #fff;
+  background-color: rgba(255, 255, 255, 0.6);
   border-radius: 3px;
   padding: 6rem;
   padding-left: 9rem;
   font-size: 1.6rem;
-  transform: skewX(-12deg);
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden; }
+  transform: skewX(-12deg); }
   .story__shape {
     width: 15rem;
     height: 15rem;
@@ -390,9 +402,7 @@ body {
     font-size: 1.7rem;
     text-align: center;
     opacity: 0;
-    transition: all .5s;
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden; }
+    transition: all .5s; }
   .story:hover .story__caption {
     opacity: 1;
     transform: translate(-50%, -50%); }
@@ -474,4 +484,4 @@ body {
 
 .section-stories {
   padding: 15rem 0;
-  background-color: #f7f7f7; }
+  position: relative; }
