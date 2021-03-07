@@ -31,19 +31,25 @@
         width: 15rem;
         height: 15rem;
         float: left;
-        -webkit-shape-outside: circle(50% at 50% 50%); //check browser support
-        shape-outside: circle(50% at 50% 50%); //inorder for this property to work element should float and the element has width and height
-        -webkit-clip-path: circle(50% at 50% 50%);
-        clip-path: circle(50% at 50% 50%);
         transform: translateX(-3rem) skewX(12deg); 
         transition: all .3s ease;
         -webkit-backface-visibility: hidden;
         backface-visibility: hidden;
         position: relative;
         border: hidden;
+        overflow: hidden;
+        border-radius: round; // to make it work in the browsers where shape-outside property doesn't work
 
         @include respond(phone) {
             transform: translateX(-3rem) skewX(0);
+        }
+
+        @supports (clip-path: polygon(0 0)) or (-webkit-clip-path: polygon(0 0)) {
+            -webkit-clip-path: circle(50% at 50% 50%);
+            clip-path: circle(50% at 50% 50%);
+            -webkit-shape-outside: circle(50% at 50% 50%); //check browser support
+            shape-outside: circle(50% at 50% 50%); //inorder for this property to work element should float and the element has width and height
+            border-radius: none;
         }
     
     }

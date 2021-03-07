@@ -1,5 +1,5 @@
 .header {
-    height: 95vh;
+    height: 85vh;
     background-image: linear-gradient(
         to right bottom, 
         rgba($color-primary-light, 0.8), 
@@ -8,8 +8,14 @@
     background-size: cover;
     background-position: top;
     position: relative;
-    -webkit-clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%); //browser support
-    clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+    
+
+    //if clip-path is not supported in other browsers then use feature query
+    @supports (clip-path: polygon(0 0)) or (-webkit-clip-path: polygon(0 0)) {
+        -webkit-clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%); //browser support
+        clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+        height: 95vh;
+    }
 
     // MEDIA QUERY WITH RESOLUTION
     // if the resolution is higher than 192dpi then load this image
@@ -33,7 +39,9 @@
 
     // Combining the above two media queries, it works as 'OR'
     // 600/16= 37.5em and 2000/16 = 125em
-    @media ( min-resolution: 192dpi) and (min-width: 37.5em),
+    //SAFARI doesn't support min-resolution, check @ caniuse.com before implementing
+    @media (min-resolution: 192dpi) and (min-width: 37.5em),
+        (-webkit-min-device-pixel-ratio: 2) and (min-width: 37.5em), // for safari
         (min-width: 125em) {
         background-image: linear-gradient(
         to right bottom, 
