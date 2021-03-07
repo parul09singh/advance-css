@@ -4,12 +4,43 @@
         to right bottom, 
         rgba($color-primary-light, 0.8), 
         rgba($color-primary-dark, 0.8))
-        , url(../img/hero.jpg);
+        , url(../img/hero-small.jpg);
     background-size: cover;
     background-position: top;
     position: relative;
     -webkit-clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%); //browser support
     clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+
+    // MEDIA QUERY WITH RESOLUTION
+    // if the resolution is higher than 192dpi then load this image
+    // if the screen size is small lets say mobile screen, it doesn't make sense to load such a large image so adding a min-width condition here
+    // mobile devices these days have high resolutions but we don't want such a large image for mobile devices
+     /*@media ( min-resolution: 192dpi) and (min-width: 600px) {
+        background-image: linear-gradient(
+        to right bottom, 
+        rgba($color-secondary-light, 0.8), 
+        rgba($color-secondary-dark, 0.8))
+        , url(../img/hero.jpg);
+    }
+
+    @media (min-width: 2000px) {
+        background-image: linear-gradient(
+        to right bottom, 
+        rgba($color-secondary-light, 0.8), 
+        rgba($color-secondary-dark, 0.8))
+        , url(../img/hero.jpg);
+    } */
+
+    // Combining the above two media queries, it works as 'OR'
+    // 600/16= 37.5em and 2000/16 = 125em
+    @media ( min-resolution: 192dpi) and (min-width: 37.5em),
+        (min-width: 125em) {
+        background-image: linear-gradient(
+        to right bottom, 
+        rgba($color-secondary-light, 0.8), 
+        rgba($color-secondary-dark, 0.8))
+        , url(../img/hero.jpg);
+    }
 
     @include respond(phone) {
         -webkit-clip-path: polygon(0 0, 100% 0, 100% 85vh, 0 100%);
