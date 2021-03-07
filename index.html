@@ -6,7 +6,9 @@
         
         <link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900" rel="stylesheet">
 
+        <!--This can be commented as it's already a part of css file after using concatenation @see line 11 in package.json but for development purposes we need this one-->
         <link rel="stylesheet" href="css/icon-font.css">
+
         <link rel="stylesheet" href="css/style.css">
         <link rel="shortcut icon" type="image/png" href="img/favicon.png">
         
@@ -522,3 +524,31 @@
     2. replace the images with responsive images 
     3. Check for browser support of different properties and test 
 -->
+
+<!-- NOTE -->
+<!-- 1. run npm install concat --save-dev in cmd prompt to concatenate css files -->
+<!-- 2. run npm install autoprefixer --save-dev in cmd prompt to generate prefixed css files; resolved prefixes -->
+<!-- inorder for prefixer to work we need to install postcss-cli as well -->
+<!-- 3. run npm install postcss-cli --save-dev in cmd prompt-->
+<!-- Faced some problem running autoprefixer.
+
+        Latest autoprefixer v10.0.0 is kinda broken and that's why postcss-cli doesn't work well with it. You just need to wait till they fix it or downgrade it to the previous version:
+
+        3.1. uninstall autoprefixer v10.0.0
+
+        npm uninstall -D autoprefixer
+
+        3.2. install autoprefixer v9.8.6
+
+        npm i autoprefixer@9.8.6 --save-dev
+
+        3.3. install postcss
+
+        npm install postcss --save-dev
+
+        3.4. npm scripts - add this:
+
+        "prefix:css": "postcss css/style.concat.css --use autoprefixer -b 'last 10 versions' -o css/style.prefix.css"
+        not the one used in video.
+ -->
+ <!-- 4. run npm install npm-run-all --save-dev in cmd prompt to build all the scripts in all platforms-->
