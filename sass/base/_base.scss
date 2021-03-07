@@ -9,7 +9,7 @@
 
 html{
     /*Changing the root font-size so that now 1rem = 10px instead of default (1rem = 16px)*/
-    font-size: 10px;
+    //font-size: 10px;
     /*Providing font-size in px is a bad practice and will override the browser setting and
     restrict the users especially disabled users to increase the font-size by changing browser settings, 
     so in order to give them this capability we will provide values in percentage
